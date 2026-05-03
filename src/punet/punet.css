@@ -15,12 +15,17 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     min-height: 100vh;
     margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 button,
@@ -749,5 +754,158 @@ button {
     .status {
         grid-column: 1 / -1;
         justify-self: start;
+    }
+}
+
+@media (max-width: 1280px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+    }
+
+    .service-panel {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 1120px) {
+    .header-inner {
+        align-items: stretch;
+    }
+
+    .primary-nav {
+        flex: 1;
+    }
+
+    .header-actions {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 860px) {
+    .site-header,
+    .header-inner {
+        min-height: auto;
+    }
+
+    .header-inner {
+        gap: 18px;
+    }
+
+    .panel-top h2 {
+        margin-top: 0;
+    }
+
+    .job-group {
+        margin-top: 34px;
+    }
+}
+
+@media (max-width: 560px) {
+    .primary-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .primary-nav a {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .header-actions {
+        align-self: stretch;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .profile {
+        flex: 1;
+    }
+
+    .profile-button {
+        width: 100%;
+    }
+
+    .profile-menu {
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+
+    .intro {
+        margin-bottom: 28px;
+    }
+
+    .intro h1 {
+        font-size: 34px;
+        line-height: 1.12;
+    }
+
+    .intro p {
+        font-size: 18px;
+    }
+
+    .panel-top h2 {
+        font-size: 24px;
+    }
+
+    .search-field {
+        gap: 12px;
+    }
+
+    .search-field svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .job-card {
+        min-height: auto;
+        padding: 22px 18px;
+    }
+
+    .vehicle strong {
+        font-size: 21px;
+    }
+
+    .vehicle span,
+    .status,
+    .card-body b,
+    .card-body p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 380px) {
+    .page {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .service-panel {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card-head {
+        grid-template-columns: 50px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .folder-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .folder-icon::before,
+    .folder-icon::after {
+        left: 10px;
+        width: 30px;
+    }
+
+    .folder-icon::before {
+        top: 16px;
+    }
+
+    .folder-icon::after {
+        top: 24px;
+        height: 18px;
     }
 }

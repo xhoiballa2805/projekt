@@ -7,6 +7,7 @@ const searchInput = document.getElementById("searchInput");
 const emptyMessage = document.getElementById("emptyMessage");
 const cards = Array.from(document.querySelectorAll(".job-card"));
 const groups = Array.from(document.querySelectorAll(".job-group"));
+const compactViewport = window.matchMedia("(max-width: 680px)");
 
 function setProfileMenu(open) {
     if (!profileButton || !profileMenu || !profileArrow) {
@@ -46,7 +47,9 @@ function filterCards() {
 if (profileButton) {
     profileButton.addEventListener("click", (event) => {
         event.stopPropagation();
-        setProfileMenu(!profileMenu.classList.contains("open"));
+        if (profileMenu) {
+            setProfileMenu(!profileMenu.classList.contains("open"));
+        }
     });
 }
 
@@ -85,3 +88,12 @@ if (logoutButton) {
 if (searchInput) {
     searchInput.addEventListener("input", filterCards);
 }
+
+function syncProfileForViewport() {
+    if (compactViewport.matches) {
+        setProfileMenu(false);
+    }
+}
+
+syncProfileForViewport();
+compactViewport.addEventListener("change", syncProfileForViewport);
